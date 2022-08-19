@@ -8,24 +8,35 @@ This was my first DIY drone. Built on the cheap using an untested flight control
 * camera feed (only while within TX distance)
 * object avoidance
 * facial recognition
+* target tracking
 * gesture control
 
 
 ### components
 	brain
-    ▪ ESP32-S3-WROOM-1-N8 DEV BRD AU$22.31
+    ▪ ESP32-cam w/5MP PLUS OV5642
     ▪ NUCLEO-144 STM32F767 DEV EVAL BD AU$36.39
-    ▪ ARDUCAM 5MP PLUS OV5642 MINI CAM AU$73.17
     ▪ GPS MODULE W/ ANTENNA (NEO-M8N) AU$54.88
     ▪ MPU-9250 GY-9250 9-axis gyro AU $11.79
+
+Existing flight controllers supported by the ArduPilot project (i.e. PixHawk Standard) are based on the STM32 series of microcontrollers. An STM32F767 development board was chosen as a substitute as it provides improved processing speeds (compared to PixHawk4 standard) at a fraction of the cost, while still allowing easy wiring and not requiring custom PCB manufacture (which would be required if building from the chip up).
+
+Most FPV drones use analog video and video transmitters as well as RC transmitter and revceiver pairs. For this design digital video and digital transmission were chosen to facilitate easy image processing for AI integration. A digital control system was also chosen as direct user control is a minor focus of the project and can still be acheived digitally without dedicated RC componentry. 
 
 	base
     • F450 Flame Wheel KIT Drone With Camera 450 Frame For RC MK MWC 4 Axis RC Multicopter Quadcopter Heli Multi-Rotor with Land Gear AU$22.31
     • 2205 2300KV CW CCW Brushless Motor With LittleBee 20A/30A BLHeli_S ESC for FPV RC QAV250 X210 Racing Drone Multicopter AU $63.25x1
     • Youme 3S Lipo Battery 11.1V 5200mah 4500mah 3300mah 6500mah 50C 60C with T Plug XT60 XT90 For RC Drone Car Monster Boat Airplane AU $37.90x1 
 
+    controller
+Manual control is acheived using an android app connected to the ESP32 running dronebridge
+https://play.google.com/store/apps/details?id=io.dabbleapp&hl=en_AU&gl=US
+
+
 ### .construction()
                *add references*
+
+
 ESP to FC Wiring
 Wiring is very simple, and similar for all devices when connecting to the Pixhawk TELEM1/2 ports. You can use 2.54mm pitch header connectors or solder the PX4 telemetry cables directly to the board.
 
