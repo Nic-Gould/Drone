@@ -1,0 +1,16 @@
+Porting ardupilot to ESP32
+ESP32-S3-DevKitC-1-N32R8V
+	
+32 MB Octal SPI RAM
+8 MB Octal SPI PSRAM
+1.8 V SPI
+
+This 2020 paper makes it sound relatively easy, as all that is required is new HAL for the new board. 
+https://pdfs.semanticscholar.org/ac07/8b1518a66c53ecdc156f409af96b1c46dbf7.pdf
+However they were unable to acheive great funtionality as "t is essential to have fast, reliable and fluid communication with
+critical sensors such as the AHRS. However, as we saw in sec-
+tion 2.2, it is necessary to recode the communication protocols
+for the ESP32 but the current version of our implementation
+is not yet sufficiently optimized for the frequencies of use re-
+quired by a flying drone (of the order of several hundred Hz)."
+
