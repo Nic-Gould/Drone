@@ -31,19 +31,22 @@ Most FPV drones use analog video and video transmitters as well as RC transmitte
     • Youme 3S Lipo Battery 11.1V 5200mah 4500mah 3300mah 6500mah 50C 60C with T Plug XT60 XT90 For RC Drone Car Monster Boat Airplane AU $37.90x1 
 
     controller
-Manual control is acheived using an android app connected to the ESP32 running dronebridge
-https://play.google.com/store/apps/details?id=io.dabbleapp&hl=en_AU&gl=US
-
+Manual control is acheived using an android app connected to the ESP32
+Looking at building a controller with another esp32 and some joysticks. 
 
  
 
 ## Firmware/Software
 Ardupilot for ESP32 is build according to [these](https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ESP32) instructions.
 Note that I encountered bugs during my build. 
-These are reported [here](https://github.com/ArduPilot/ardupilot/issues/21695) and [here](https://github.com/ArduPilot/ardupilot/issues/21675), with my workarounds. 
-I'd suggest that you also disable FTP over MAVlink by editing the associated file. 
+These are reported 
+* [here](https://github.com/ArduPilot/ardupilot/issues/21843)
+* [here](https://github.com/ArduPilot/ardupilot/issues/21842)
+* [here](https://github.com/ArduPilot/ardupilot/issues/21695), and 
+* [here](https://github.com/ArduPilot/ardupilot/issues/21675), with my workarounds. 
+
 
 ### .construction()
-
+The basic build process followed common self-build drone steps, such as those outlined in [this](https://create.arduino.cc/projecthub/akarsh98/diy-arduino-based-quadcopter-drone-948153) tutorial.
 There is no need for an external telemetry / control module as in the previous build, as the flight control software can connect directly to the ESP 32 over wifi.
 
